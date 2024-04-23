@@ -15,9 +15,7 @@ This project represents an ongoing learning journey, acknowledging its current s
 - Embeddings ([LangChain](https://python.langchain.com/docs/modules/data_connection/text_embedding/))
 - Prompts ([Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/guides/README.md))
 
-As highlighted [here](https://towardsdatascience.com/evaluating-rag-applications-with-ragas-81d67b0ee31a):
-> Building a proof of concept for a Retrieval-Augmented Generation (RAG) application is straightforward, but making it production-ready is challenging.
-
+### TODOs
 There's room for improvement, such as:
 - Enhancing methods to segment episode scripts into documents.
 - Substituting pronouns with names in documents to enhance context.
@@ -29,10 +27,23 @@ There's room for improvement, such as:
 - Incorporating chat history.
 - Refactoring project files to enable changes to the studied series.
 
-Additional resources:
+### Additional resources:
 - [OpenAI Chat](https://chat.openai.com/chat)
 - [Kaggle Titanic Tutorial](https://www.kaggle.com/code/alexisbcook/titanic-tutorial)
 - [LangChain Question Answering Use Cases](https://python.langchain.com/docs/use_cases/question_answering/)
 - [LLAMA Index](https://www.llamaindex.ai/)
 - [Mistral Basic RAG Guide](https://docs.mistral.ai/guides/basic-RAG/)
 - [Building a Conversational RAG with LangChain and Mistral (Part 2)](https://medium.com/@thakermadhav/part-2-build-a-conversational-rag-with-langchain-and-mistral-7b-6a4ebe497185)
+
+### Final words:
+
+As highlighted [here](https://towardsdatascience.com/evaluating-rag-applications-with-ragas-81d67b0ee31a):
+> Building a proof of concept for a Retrieval-Augmented Generation (RAG) application is straightforward, but making it production-ready is challenging.
+
+Sometimes it works:
+<img width="1199" alt="Screenshot 2024-04-23 at 09 01 32" src="https://github.com/cyrilchampier/rag-friends/assets/2128556/793deaf5-4cd9-47be-81f5-5240ebd3a461">
+
+But other times, it goes rogue:
+<img width="1199" alt="Screenshot 2024-04-23 at 08 33 51" src="https://github.com/cyrilchampier/rag-friends/assets/2128556/6e1fd25c-b19d-4b16-bfc6-be4e3f701dd0">
+
+
