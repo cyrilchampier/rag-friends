@@ -15,7 +15,7 @@ class FriendsVectorStore:
     DOCUMENT_LINES_COUNT = 6
     DOCUMENT_LINES_OVERLAP = 2
 
-    def as_retriever(self, document_retreived_count=50):
+    def as_retriever(self, document_retreived_count=20):
         if not os.path.exists(self.PERSIST_DIRECTORY):
             self._create()
         return self.database.as_retriever(search_kwargs={"k": document_retreived_count})
@@ -57,7 +57,7 @@ class FriendsVectorStore:
             self.friends_scripts_path,
             glob="**/*.txt",
             use_multithreading=True,
-            show_progress=True,
+            show_progress=False,
             loader_cls=ScriptDocumentLoader,
             loader_kwargs={
                 "chunk_size": self.DOCUMENT_LINES_COUNT,
