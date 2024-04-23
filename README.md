@@ -24,7 +24,10 @@ There's room for improvement, such as:
 - Document embedding techniques.
 - Leveraging vector store technology.
 - Crafting more customized prompts tailored to the model utilized.
+- Replacing the model hosted by LMStudio with an "inlined" Python model.
+- Tweaking model parameters.
 - Incorporating chat history.
+- Refactoring project files to enable changes to the studied series.
 
 Additional resources:
 - [OpenAI Chat](https://chat.openai.com/chat)
