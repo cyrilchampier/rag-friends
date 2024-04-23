@@ -1,5 +1,6 @@
 from langchain import hub
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts.prompt import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import OpenAI
 
@@ -8,36 +9,29 @@ from script_document_loader import ScriptDocumentLoader
 
 llm_client = OpenAI(
     base_url="http://localhost:1234/v1",
-    api_key="not-needed",
+    api_key="lm-studio",
     model="TheBloke/Mistral-7B-Instruct-v0.2-GGUF",
+    temperature=0.2,
 )
 
 
 retriever = FriendsVectorStore().as_retriever()
 
 
-# prompt_template = hub.pull("rlm/rag-prompt-mistral") # {context}, {question}
-prompt_template = hub.pull("athroniaeth/rag-prompt-mistral-custom-2") # {context}, {input}
+prompt_template = hub.pull("rlm/rag-prompt-mistral") # {context}, {question}
 
-# prompt = """
-# Context information is below.
-# ---------------------
-# {context}
-# ---------------------
-# Given the context information and not prior knowledge, answer the query.
-# Query: {question}
-# Answer:
-# """
+prompt_string = """
+### [INST] 
+Instruction: Answer the question based on your "Friends" knowledge. Here are some dialog excerpts from the show to help:
 
-# prompt_string = """Answer the following question based only on the provided context:
-# <context>
-# {context}
-# </context>
-# Question: {question}
-# Answer:
-# """
+{context}
 
-# prompt_template = PromptTemplate.from_template(prompt_string)
+### QUESTION:
+{question} 
+
+[/INST]
+ """
+prompt_template = PromptTemplate.from_template(prompt_string)
 
 
 def input_question():
@@ -51,7 +45,7 @@ def input_question():
 
 def prompt():
     context = retriever | ScriptDocumentLoader.documents_as_context
-    return {"context": context, "input": RunnablePassthrough()} | prompt_template
+    return {"context": context, "question": RunnablePassthrough()} | prompt_template
 
 
 while True:
